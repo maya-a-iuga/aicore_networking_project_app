@@ -7,11 +7,11 @@ from sqlalchemy.ext.declarative import declarative_base
 app = Flask(__name__)
 
 # database connection parameters
-username = 'your_postgres_user'
-password = 'your_postgres_password'
-host = 'your-rds-instance-endpoint.rds.amazonaws.com'
+username = 'postgres'
+password = 'Pon3$5pone!'
+host = 'np-demo-rds-database.clg9fn0gdgbo.eu-west-1.rds.amazonaws.com'
 port = 5432  # Default port for PostgreSQL
-database = 'your_database_name'
+database = 'inventory_app'
 
 # Create the connection string for PostgreSQL
 connection_string = f'postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}'
@@ -29,13 +29,13 @@ Base = declarative_base()
 class Order(Base):
     __tablename__ = 'orders'
     date_uuid = Column('date_uuid', String, primary_key=True)
-    user_id = Column('User ID', String, primary_key=True)
-    card_number = Column('Card Number', String)
-    store_code = Column('Store Code', String)
+    user_id = Column('user_id', String, primary_key=True)
+    card_number = Column('card_number', String)
+    store_code = Column('store_code', String)
     product_code = Column('product_code', String)
-    product_quantity = Column('Product Quantity', Integer)
-    order_date = Column('Order Date', DateTime)
-    shipping_date = Column('Shipping Date', DateTime)
+    product_quantity = Column('product_quantity', Integer)
+    order_date = Column('order_date', DateTime)
+    shipping_date = Column('shipping_date', DateTime)
 
 # define routes
 # route to display orders
